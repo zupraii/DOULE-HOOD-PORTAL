@@ -77,11 +77,9 @@
       animation-delay: 0.4s;
     }
 
-    /* Contenedor del botón y del círculo animado */
     .button-wrapper {
       position: relative;
-      width: max-content;
-      height: auto;
+      margin-top: 30px;
     }
 
     .circle-reveal {
@@ -94,14 +92,11 @@
       border-radius: 50%;
       transform: translate(-50%, -50%);
       z-index: 2;
-      animation: circleExpand 1s ease forwards;
-      pointer-events: none; /* ← Esto permite hacer clic en el botón */
+      animation: shapeReveal 0.8s ease forwards;
+      pointer-events: none;
     }
 
     .play-button {
-      opacity: 0;
-      transform: scale(0.8);
-      transition: opacity 0.3s ease, transform 0.3s ease;
       position: relative;
       padding: 15px 40px;
       font-size: 1.5rem;
@@ -109,12 +104,17 @@
       border: none;
       border-radius: 10px;
       cursor: pointer;
+      user-select: none;
       text-transform: uppercase;
       text-decoration: none;
       color: white;
       background-color: #27ae60;
       box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      display: inline-block;
+      opacity: 0;
       z-index: 1;
+      transform: scale(0.8);
+      transition: opacity 0.3s ease, transform 0.3s ease;
     }
 
     .play-button.revealed {
@@ -126,14 +126,24 @@
       background-color: #2980b9;
     }
 
+    /* Animación de texto */
     @keyframes zoomOutIn {
       0% { transform: scale(1); opacity: 1; }
       100% { transform: scale(1.2); opacity: 1; }
     }
 
-    @keyframes circleExpand {
-      0% { width: 0; height: 0; opacity: 1; }
-      100% { width: 400px; height: 400px; opacity: 0; }
+    /* Círculo que crece */
+    @keyframes shapeReveal {
+      0% {
+        width: 0;
+        height: 0;
+        opacity: 1;
+      }
+      100% {
+        width: 300%;
+        height: 300%;
+        opacity: 0;
+      }
     }
   </style>
 </head>
@@ -161,10 +171,10 @@
   </div>
 
   <script>
-    // Revelar el botón después de que crece el círculo
+    // Revelar el botón después de la animación del círculo
     setTimeout(() => {
       document.querySelector('.play-button').classList.add('revealed');
-    }, 1000); // Tiempo igual al de la animación del círculo
+    }, 800); // Igual al tiempo de shapeReveal
   </script>
 </body>
 </html>
