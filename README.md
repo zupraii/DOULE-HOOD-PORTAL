@@ -71,10 +71,6 @@
     <h1>DOULE HOOD PORTAL</h1>
   </header>
 
-
-<!DOCTYPE html>
-<html lang="es">
-...
 <head>
   <meta charset="UTF-8" />
   <title>DOULE HOOD PORTAL</title>
