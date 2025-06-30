@@ -11,32 +11,33 @@
     referrerpolicy="no-referrer"
   />
   <style>
-    /* Quitar margen y padding a todo el body y html */
     html, body {
       margin: 0;
       padding: 0;
       height: 100%;
       font-family: Arial, sans-serif;
+      background: #121212; /* Fondo oscuro general */
+      color: white;
     }
 
     header {
-      width: 100%; /* que abarque todo el ancho */
-      background: linear-gradient(90deg, #ff7e5f, #feb47b);
+      width: 100%;
+      background-color: #000000; /* fondo negro sólido */
       color: white;
       display: flex;
       align-items: center;
       padding: 15px 30px;
       gap: 15px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-      position: fixed; /* para que quede fijo arriba al hacer scroll */
+      box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+      position: fixed;
       top: 0;
       left: 0;
-      z-index: 1000; /* para que esté arriba de todo */
+      z-index: 1000;
     }
 
     header i {
       font-size: 28px;
-      color: #fffacd;
+      color: #f39c12; /* color dorado para icono */
     }
 
     header h1 {
@@ -45,12 +46,11 @@
       letter-spacing: 3px;
       font-weight: 700;
       text-transform: uppercase;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+      text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.2);
     }
 
-    /* Para que el contenido no quede oculto debajo del header fijo */
     main {
-      padding-top: 70px; /* un poco más que la altura del header */
+      padding-top: 70px; /* para que no quede tapado por el header */
     }
   </style>
 </head>
@@ -61,9 +61,8 @@
   </header>
 
   <main>
-    <p>Contenido de la página va aquí. Prueba hacer scroll y verás que el header queda fijo arriba y con fondo completo.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris lobortis, nunc sed varius blandit, sapien velit blandit enim, vitae facilisis sapien libero sed leo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-    <p style="height: 1500px;"></p> <!-- espacio para scroll -->
+    <p>Contenido de la página va aquí. Haz scroll para ver el header fijo con fondo negro.</p>
+    <p style="height: 1500px;"></p>
   </main>
 </body>
 </html>
