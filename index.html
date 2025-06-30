@@ -96,18 +96,19 @@
       background-color: #2980b9;
     }
 
-    /* Reproductor de música */
-    .music-player {
+    .music-controls {
       position: fixed;
       bottom: 20px;
       right: 20px;
-      width: 300px;
-      height: 80px;
-      z-index: 1001;
-      border: none;
+      background-color: rgba(0,0,0,0.6);
+      padding: 10px;
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
-      overflow: hidden;
+      box-shadow: 0 0 8px rgba(0,0,0,0.5);
+      z-index: 1002;
+    }
+
+    .music-controls audio {
+      width: 250px;
     }
   </style>
 </head>
@@ -130,14 +131,24 @@
     </a>
   </div>
 
-  <!-- Reproductor de música desde Archive.org -->
-  <iframe
-    class="music-player"
-    src="https://archive.org/embed/destroy-lonely-if-looks-could-kill-x-red-x-i-think-it-looks-much-cooler-on-me"
-    width="300"
-    height="80"
-    frameborder="0"
-    allowfullscreen
-  ></iframe>
+  <div class="music-controls" id="musicPlayer">
+    <audio id="bgMusic" controls loop>
+      <source src="https://archive.org/download/destroy-lonely-if-looks-could-kill-x-red-x-i-think-it-looks-much-cooler-on-me/destroy-lonely-if-looks-could-kill-x-red-x-i-think-it-looks-much-cooler-on-me.mp3" type="audio/mpeg">
+      Tu navegador no soporta audio HTML5.
+    </audio>
+  </div>
+
+  <script>
+    // Reproduce la música después del primer clic en la página
+    window.addEventListener("DOMContentLoaded", () => {
+      const audio = document.getElementById("bgMusic");
+      const tryPlay = () => {
+        audio.play().catch(err => {
+          console.log("Esperando interacción del usuario para reproducir el audio.");
+        });
+      };
+      document.body.addEventListener("click", tryPlay, { once: true });
+    });
+  </script>
 </body>
 </html>
