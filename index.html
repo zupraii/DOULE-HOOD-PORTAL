@@ -14,6 +14,7 @@
       color: white;
       overflow: hidden;
     }
+
     header {
       width: 100%;
       background-color: rgba(0, 0, 0, 0.9);
@@ -28,14 +29,15 @@
       left: 0;
       z-index: 1000;
       backdrop-filter: blur(5px);
-      -webkit-backdrop-filter: blur(5px);
     }
+
     header img {
       width: 35px;
       height: 35px;
       object-fit: cover;
       border-radius: 50%;
     }
+
     header h1 {
       margin: 0;
       font-size: 28px;
@@ -44,6 +46,7 @@
       text-transform: uppercase;
       text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.2);
     }
+
     .center-container {
       height: 100vh;
       display: flex;
@@ -54,25 +57,26 @@
       padding-top: 70px;
       gap: 15px;
     }
+
     .welcome {
       font-size: 4rem;
       font-weight: 900;
       letter-spacing: 5px;
       text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
-      display: inline-block;
       animation: zoomOutIn 1s ease forwards;
       animation-delay: 0.2s;
     }
+
     .doulehood {
       font-size: 2.5rem;
       font-weight: 700;
       letter-spacing: 3px;
       text-transform: uppercase;
       text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
-      display: inline-block;
       animation: zoomOutIn 1s ease forwards;
       animation-delay: 0.4s;
     }
+
     .play-button {
       position: relative;
       margin-top: 30px;
@@ -82,39 +86,35 @@
       border: none;
       border-radius: 10px;
       cursor: pointer;
-      user-select: none;
       text-transform: uppercase;
       text-decoration: none;
       color: white;
       background-color: #27ae60;
       box-shadow: 0 4px 8px rgba(0,0,0,0.3);
       overflow: hidden;
-      z-index: 0;
-      display: inline-block;
       opacity: 0;
-      animation: revealButton 1s ease forwards;
-      animation-delay: 0.6s;
+      animation: fadeIn 0.1s ease forwards;
+      animation-delay: 1s;
     }
-    .play-button::before {
+
+    .play-button::after {
       content: "";
       position: absolute;
       top: 50%;
       left: 50%;
+      transform: translate(-50%, -50%);
       width: 0;
       height: 0;
-      background: #16a085;
+      background-color: #16a085;
       border-radius: 50%;
-      transform: translate(-50%, -50%);
-      z-index: -1;
-      animation: shapeReveal 0.8s ease forwards;
-      animation-delay: 0.6s;
-    }
-    .play-button:hover {
-      background-color: #2980b9;
-      color: white;
+      z-index: 2;
+      animation: shapeGrow 1s ease forwards;
     }
 
-    /* Animación zoom hacia afuera para textos */
+    .play-button:hover {
+      background-color: #2980b9;
+    }
+
     @keyframes zoomOutIn {
       0% {
         transform: scale(1);
@@ -126,32 +126,28 @@
       }
     }
 
-    /* Animación de shape (círculo) que crece */
-    @keyframes shapeReveal {
+    @keyframes shapeGrow {
       0% {
         width: 0;
         height: 0;
-        opacity: 0.8;
+        opacity: 1;
       }
       100% {
         width: 300%;
         height: 300%;
+        opacity: 0;
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
         opacity: 1;
       }
     }
 
-    /* Animación que hace visible el botón tras la forma */
-    @keyframes revealButton {
-      0% {
-        opacity: 0;
-      }
-      80% {
-        opacity: 0;
-      }
-      100% {
-        opacity: 1;
-      }
-    }
   </style>
 </head>
 <body>
