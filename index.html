@@ -73,8 +73,6 @@
       animation: zoomOutIn 1s ease forwards;
       animation-delay: 0.4s;
     }
-
-    /* Botón con efecto shape tipo Wix */
     .play-button {
       position: relative;
       margin-top: 30px;
@@ -88,25 +86,31 @@
       text-transform: uppercase;
       text-decoration: none;
       color: white;
+      background-color: #27ae60;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
       overflow: hidden;
       z-index: 0;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-      background: linear-gradient(45deg, #27ae60, #2ecc71, #16a085, #27ae60);
-      background-size: 400% 400%;
-      transition: color 0.3s ease;
-      animation: gradientMove 15s ease infinite;
       display: inline-block;
     }
+    .play-button::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: #16a085;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+      animation: shapeReveal 0.8s ease forwards;
+    }
     .play-button:hover {
-      color: #000;
-      animation-play-state: paused;
-      background: linear-gradient(45deg, #f39c12, #e67e22, #d35400, #f39c12);
-      background-size: 400% 400%;
-      animation: gradientMoveHover 10s ease infinite;
-      box-shadow: 0 6px 12px rgba(243, 156, 18, 0.7);
+      background-color: #2980b9;
+      color: white;
     }
 
-    /* Animación zoom hacia afuera y que se queda escalado */
+    /* Animación zoom hacia afuera para textos */
     @keyframes zoomOutIn {
       0% {
         transform: scale(1);
@@ -118,31 +122,19 @@
       }
     }
 
-    /* Movimiento suave del gradiente de fondo */
-    @keyframes gradientMove {
+    /* Animación de shape (círculo) que crece */
+    @keyframes shapeReveal {
       0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
+        width: 0;
+        height: 0;
+        opacity: 0.8;
       }
       100% {
-        background-position: 0% 50%;
+        width: 300%;
+        height: 300%;
+        opacity: 1;
       }
     }
-
-    @keyframes gradientMoveHover {
-      0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0% 50%;
-      }
-    }
-
   </style>
 </head>
 <body>
