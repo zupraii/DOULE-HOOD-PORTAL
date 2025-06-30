@@ -18,7 +18,7 @@
       font-family: Arial, sans-serif;
       /* Fondo con GIF animado */
       background: url('https://i.pinimg.com/originals/6a/8e/4d/6a8e4d2b450f10d3733422efc4e95526.gif') no-repeat center center fixed;
-      background-size: 300px 300px; /* ancho y alto fijo */
+      background-size: auto; 
 
 
       color: white;
