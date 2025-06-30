@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>DOULE HOOD</title>
+  <title>DOULE HOOD PORTAL</title>
   <!-- Font Awesome -->
   <link
     rel="stylesheet"
@@ -70,10 +70,3 @@
     <h1>DOULE HOOD</h1>
   </header>
 
-  <main>
-    <p>Contenido de la página va aquí. El fondo es un GIF animado debajo del header.</p>
-    <p>Haz scroll para verlo en acción.</p>
-    <p style="height: 1500px;"></p> <!-- espacio para scroll -->
-  </main>
-</body>
-</html>
