@@ -73,25 +73,37 @@
       animation: zoomOutIn 1s ease forwards;
       animation-delay: 0.4s;
     }
+
+    /* Botón con efecto shape tipo Wix */
     .play-button {
+      position: relative;
       margin-top: 30px;
-      background-color: #27ae60;
-      color: white;
       padding: 15px 40px;
       font-size: 1.5rem;
       font-weight: 700;
       border: none;
       border-radius: 10px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-      text-transform: uppercase;
       user-select: none;
+      text-transform: uppercase;
       text-decoration: none;
+      color: white;
+      overflow: hidden;
+      z-index: 0;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      background: linear-gradient(45deg, #27ae60, #2ecc71, #16a085, #27ae60);
+      background-size: 400% 400%;
+      transition: color 0.3s ease;
+      animation: gradientMove 15s ease infinite;
       display: inline-block;
     }
     .play-button:hover {
-      background-color: #2980b9;
+      color: #000;
+      animation-play-state: paused;
+      background: linear-gradient(45deg, #f39c12, #e67e22, #d35400, #f39c12);
+      background-size: 400% 400%;
+      animation: gradientMoveHover 10s ease infinite;
+      box-shadow: 0 6px 12px rgba(243, 156, 18, 0.7);
     }
 
     /* Animación zoom hacia afuera y que se queda escalado */
@@ -105,6 +117,32 @@
         opacity: 1;
       }
     }
+
+    /* Movimiento suave del gradiente de fondo */
+    @keyframes gradientMove {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    @keyframes gradientMoveHover {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
   </style>
 </head>
 <body>
