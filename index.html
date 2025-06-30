@@ -96,25 +96,18 @@
       background-color: #2980b9;
     }
 
-    /* Botón de música */
-    .music-button {
+    /* Reproductor de música */
+    .music-player {
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background-color: #f39c12;
-      color: white;
-      border: none;
-      padding: 12px 20px;
-      font-size: 16px;
-      font-weight: bold;
-      border-radius: 10px;
-      cursor: pointer;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      width: 300px;
+      height: 80px;
       z-index: 1001;
-    }
-
-    .music-button:hover {
-      background-color: #e67e22;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+      overflow: hidden;
     }
   </style>
 </head>
@@ -137,29 +130,14 @@
     </a>
   </div>
 
-  <button class="music-button" id="musicToggle">🔊 Play Music</button>
-
-  <script>
-    const audio = new Audio("https://archive.org/download/destroy-lonely-if-looks-could-kill-x-red-x-i-think-it-looks-much-cooler-on-me/destroy-lonely-if-looks-could-kill-x-red-x-i-think-it-looks-much-cooler-on-me.mp3");
-    audio.loop = true;
-    let playing = false;
-
-    const btn = document.getElementById("musicToggle");
-    btn.addEventListener("click", () => {
-      if (!playing) {
-        audio.play().then(() => {
-          playing = true;
-          btn.textContent = "⏸️ Pause Music";
-        }).catch(err => {
-          console.error("No se pudo reproducir:", err);
-          alert("Haz clic para permitir la música.");
-        });
-      } else {
-        audio.pause();
-        playing = false;
-        btn.textContent = "🔊 Play Music";
-      }
-    });
-  </script>
+  <!-- Reproductor de música desde Archive.org -->
+  <iframe
+    class="music-player"
+    src="https://archive.org/embed/destroy-lonely-if-looks-could-kill-x-red-x-i-think-it-looks-much-cooler-on-me"
+    width="300"
+    height="80"
+    frameborder="0"
+    allowfullscreen
+  ></iframe>
 </body>
 </html>
