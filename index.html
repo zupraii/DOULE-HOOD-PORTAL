@@ -3,6 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <title>DOULE HOOD PORTAL</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
   <style>
     html, body {
       margin: 0;
@@ -30,11 +36,9 @@
       backdrop-filter: blur(5px);
       -webkit-backdrop-filter: blur(5px);
     }
-    header img {
-      width: 35px;
-      height: 35px;
-      object-fit: cover;
-      border-radius: 50%;
+    header i {
+      font-size: 28px;
+      color: #f39c12;
     }
     header h1 {
       margin: 0;
@@ -87,14 +91,35 @@
     .play-button:hover {
       background-color: #2980b9;
     }
+    /* Botón música fijo abajo derecha */
+    .music-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #27ae60;
+      color: white;
+      padding: 12px 25px;
+      font-size: 1rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      text-transform: uppercase;
+      user-select: none;
+      z-index: 1100;
+    }
+    .music-button:hover {
+      background-color: #2980b9;
+    }
   </style>
 </head>
 <body>
   <header>
-    <img src="https://i.pinimg.com/736x/2d/15/09/2d15096a992665130f8bd2a2920a3d62.jpg" alt="Logo">
+    <i class="fas fa-mask"></i>
     <h1>DOULE HOOD PORTAL</h1>
   </header>
-
   <div class="center-container">
     <div class="welcome">WELCOME TO</div>
     <div class="doulehood">DOULE HOOD PORTAL!</div>
@@ -108,6 +133,32 @@
     </a>
   </div>
 
-  <script src="audio.js"></script>
+  <button class="music-button" type="button">MUSIC PLAY</button>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const audio = new Audio("https://dl.dropboxusercontent.com/scl/fi/3ko1wwm6htory3jhtnt84/Destroy-Lonely-If-looks-could-kill-x-Red-X-I-think-it-looks-much-cooler-on-me-1.mp3");
+      audio.loop = true;
+      let playing = false;
+
+      const musicBtn = document.querySelector(".music-button");
+
+      musicBtn.addEventListener("click", () => {
+        if (!playing) {
+          audio.play().then(() => {
+            playing = true;
+            musicBtn.textContent = "MUSIC PAUSE";
+          }).catch(e => {
+            console.error("Error al reproducir audio:", e);
+            alert("No se pudo reproducir el audio. Revisa la consola.");
+          });
+        } else {
+          audio.pause();
+          playing = false;
+          musicBtn.textContent = "MUSIC PLAY";
+        }
+      });
+    });
+  </script>
 </body>
 </html>
