@@ -20,6 +20,7 @@
       color: white;
       overflow: hidden;
     }
+
     header {
       width: 100%;
       background-color: rgba(0, 0, 0, 0.9);
@@ -34,12 +35,14 @@
       left: 0;
       z-index: 1000;
       backdrop-filter: blur(5px);
-      -webkit-backdrop-filter: blur(5px);
     }
-    header i {
-      font-size: 28px;
-      color: #f39c12;
+
+    header img {
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
     }
+
     header h1 {
       margin: 0;
       font-size: 28px;
@@ -48,6 +51,7 @@
       text-transform: uppercase;
       text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.2);
     }
+
     .center-container {
       height: 100vh;
       display: flex;
@@ -58,12 +62,14 @@
       padding-top: 70px;
       gap: 15px;
     }
+
     .welcome {
       font-size: 4rem;
       font-weight: 900;
       letter-spacing: 5px;
       text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
     }
+
     .doulehood {
       font-size: 2.5rem;
       font-weight: 700;
@@ -71,34 +77,14 @@
       text-transform: uppercase;
       text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
     }
+
     .play-button {
-      margin-top: 30px;
-      background-color: #27ae60;
-      color: white;
-      padding: 15px 40px;
-      font-size: 1.5rem;
-      font-weight: 700;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-      text-transform: uppercase;
-      user-select: none;
-      text-decoration: none;
-      display: inline-block;
-    }
-    .play-button:hover {
-      background-color: #2980b9;
-    }
-    /* Botón música fijo abajo derecha */
-    .music-button {
       position: fixed;
       bottom: 20px;
       right: 20px;
       background-color: #27ae60;
       color: white;
-      padding: 12px 25px;
+      padding: 15px 30px;
       font-size: 1rem;
       font-weight: 700;
       border: none;
@@ -108,18 +94,21 @@
       box-shadow: 0 4px 8px rgba(0,0,0,0.3);
       text-transform: uppercase;
       user-select: none;
-      z-index: 1100;
+      text-decoration: none;
+      z-index: 1001;
     }
-    .music-button:hover {
+
+    .play-button:hover {
       background-color: #2980b9;
     }
   </style>
 </head>
 <body>
   <header>
-    <i class="fas fa-mask"></i>
+    <img src="https://i.pinimg.com/736x/2d/15/09/2d15096a992665130f8bd2a2920a3d62.jpg" alt="icono" />
     <h1>DOULE HOOD PORTAL</h1>
   </header>
+
   <div class="center-container">
     <div class="welcome">WELCOME TO</div>
     <div class="doulehood">DOULE HOOD PORTAL!</div>
@@ -128,36 +117,33 @@
       target="_blank"
       class="play-button"
       rel="noopener noreferrer"
+      id="music-toggle"
     >
       PLAY!
     </a>
   </div>
 
-  <button class="music-button" type="button">MUSIC PLAY</button>
-
   <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const audio = new Audio("https://dl.dropboxusercontent.com/scl/fi/3ko1wwm6htory3jhtnt84/Destroy-Lonely-If-looks-could-kill-x-Red-X-I-think-it-looks-much-cooler-on-me-1.mp3");
-      audio.loop = true;
-      let playing = false;
+    const audio = new Audio("https://archive.org/download/destroy-lonely-if-looks-could-kill-x-red-x-i-think-it-looks-much-cooler-on-me/Destroy-Lonely-If-looks-could-kill-x-Red-X-I-think-it-looks-much-cooler-on-me.mp3");
+    audio.loop = true;
+    let playing = false;
 
-      const musicBtn = document.querySelector(".music-button");
-
-      musicBtn.addEventListener("click", () => {
-        if (!playing) {
-          audio.play().then(() => {
-            playing = true;
-            musicBtn.textContent = "MUSIC PAUSE";
-          }).catch(e => {
-            console.error("Error al reproducir audio:", e);
-            alert("No se pudo reproducir el audio. Revisa la consola.");
-          });
-        } else {
-          audio.pause();
-          playing = false;
-          musicBtn.textContent = "MUSIC PLAY";
-        }
-      });
+    const btn = document.getElementById("music-toggle");
+    btn.addEventListener("click", (e) => {
+      e.preventDefault(); // evita que abra Roblox al hacer click
+      if (!playing) {
+        audio.play().then(() => {
+          playing = true;
+          btn.textContent = "PAUSE";
+        }).catch((err) => {
+          console.error("No se pudo reproducir el audio:", err);
+          alert("Haz clic para permitir sonido.");
+        });
+      } else {
+        audio.pause();
+        playing = false;
+        btn.textContent = "PLAY!";
+      }
     });
   </script>
 </body>
