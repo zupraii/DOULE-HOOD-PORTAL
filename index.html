@@ -16,23 +16,22 @@
     }
 
     header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between; /* logo+título a la izquierda, Discord a la derecha */
-      padding: 15px 30px;
+      width: 100%;
       background-color: rgba(0, 0, 0, 0.9);
       color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between; /* Esto pone espacio entre logo y discord */
+      padding: 15px 30px;
       box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
       position: fixed;
       top: 0;
       left: 0;
-      width: 100%;
       z-index: 1000;
       backdrop-filter: blur(5px);
-      -webkit-backdrop-filter: blur(5px);
     }
 
-    header .left-header {
+    header .left-section {
       display: flex;
       align-items: center;
       gap: 15px;
@@ -54,14 +53,15 @@
       text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.2);
     }
 
-    .discord-link img {
-      width: 35px;
-      height: 35px;
+    header a.discord-link img {
+      width: 30px;
+      height: 30px;
+      object-fit: contain;
       cursor: pointer;
-      transition: transform 0.3s ease;
+      transition: transform 0.2s ease;
     }
 
-    .discord-link img:hover {
+    header a.discord-link img:hover {
       transform: scale(1.1);
     }
 
@@ -91,77 +91,36 @@
       text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
     }
 
-    .button-wrapper {
-      position: relative;
-      margin-top: 30px;
-    }
-
-    .circle-reveal {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 0;
-      height: 0;
-      background-color: #16a085;
-      border-radius: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 2;
-      animation: shapeReveal 0.8s ease forwards;
-      pointer-events: none; /* Permite hacer clic en el botón */
-    }
-
     .play-button {
-      position: relative;
+      margin-top: 30px;
+      background-color: #27ae60;
+      color: white;
       padding: 15px 40px;
       font-size: 1.5rem;
       font-weight: 700;
       border: none;
       border-radius: 10px;
       cursor: pointer;
-      user-select: none;
-      text-transform: uppercase;
-      text-decoration: none;
-      color: white;
-      background-color: #27ae60;
+      transition: background-color 0.3s ease;
       box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      text-transform: uppercase;
+      user-select: none;
+      text-decoration: none;
       display: inline-block;
-      opacity: 0;
-      z-index: 1;
-      transform: scale(0.8);
-      transition: opacity 0.3s ease, transform 1s ease;
-    }
-
-    .play-button.revealed {
-      opacity: 1;
-      transform: scale(1);
     }
 
     .play-button:hover {
       background-color: #2980b9;
-      transform: scale(1.05); /* Efecto agrandado al pasar mouse */
-    }
-
-    @keyframes shapeReveal {
-      0% {
-        width: 0;
-        height: 0;
-        opacity: 1;
-      }
-      100% {
-        width: 300%;
-        height: 300%;
-        opacity: 0;
-      }
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="left-header">
+    <div class="left-section">
       <img src="https://i.pinimg.com/736x/2d/15/09/2d15096a992665130f8bd2a2920a3d62.jpg" alt="Logo" class="logo" />
       <h1>DOULE HOOD PORTAL</h1>
     </div>
-    <a href="https://discord.gg/ugg6MqEQTa" target="_blank" rel="noopener noreferrer" class="discord-link" title="Únete a nuestro Discord">
+    <a href="https://discord.gg/ugg6MqEQTa" target="_blank" class="discord-link" rel="noopener noreferrer" aria-label="Discord">
       <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Discord" />
     </a>
   </header>
@@ -169,25 +128,14 @@
   <div class="center-container">
     <div class="welcome">WELCOME TO</div>
     <div class="doulehood">DOULE HOOD PORTAL!</div>
-
-    <div class="button-wrapper">
-      <div class="circle-reveal"></div>
-      <a
-        href="https://www.roblox.com/games/119400300196930/DOULE-HOOD"
-        target="_blank"
-        class="play-button"
-        rel="noopener noreferrer"
-      >
-        PLAY!
-      </a>
-    </div>
+    <a
+      href="https://www.roblox.com/games/119400300196930/DOULE-HOOD"
+      target="_blank"
+      class="play-button"
+      rel="noopener noreferrer"
+    >
+      PLAY!
+    </a>
   </div>
-
-  <script>
-    // Revelar el botón después del efecto del círculo
-    setTimeout(() => {
-      document.querySelector('.play-button').classList.add('revealed');
-    }, 800); // Coincide con duración de shapeReveal
-  </script>
 </body>
 </html>
