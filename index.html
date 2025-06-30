@@ -28,8 +28,9 @@
       top: 0;
       left: 0;
       z-index: 1000;
-      backdrop-filter: blur(5px);
+      /* primero prefijo, luego estándar */
       -webkit-backdrop-filter: blur(5px);
+      backdrop-filter: blur(5px);
     }
     header img {
       width: 35px;
@@ -83,10 +84,10 @@
       text-transform: uppercase;
       text-decoration: none;
       display: inline-block;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
+      -webkit-user-select: none; /* Chrome, Safari */
+      -moz-user-select:    none; /* Firefox */
+      -ms-user-select:     none; /* IE10+ */
+      user-select:         none; /* Estándar */
     }
     .play-button:hover {
       background-color: #2980b9;
@@ -118,7 +119,11 @@
       cursor: pointer;
       color: white;
       box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-      user-select: none;
+      /* prefijos user-select */
+      -webkit-user-select: none;
+      -moz-user-select:    none;
+      -ms-user-select:     none;
+      user-select:         none;
       transition: background-color 0.3s ease;
     }
     #musicToggleBtn:hover {
@@ -157,6 +162,7 @@
     const audio = document.getElementById("bgMusic");
     const toggleBtn = document.getElementById("musicToggleBtn");
 
+    // Volumen al 50%
     audio.volume = 0.5;
     let isPlaying = false;
 
@@ -176,6 +182,7 @@
       }
     });
 
+    // Primer click en la página intenta reproducir
     window.addEventListener("click", () => {
       if (!isPlaying) {
         audio.play().then(() => {
