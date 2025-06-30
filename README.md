@@ -67,7 +67,7 @@
 <body>
   <header>
     <i class="fas fa-mask"></i>
-    <h1>DOULE HOOD</h1>
+    <h1>DOULE HOOD PORTAL</h1>
   </header>
 
 
@@ -75,7 +75,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>DOULE HOOD</title>
+  <title>DOULE HOOD PORTAL</title>
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -90,7 +90,7 @@
       font-family: Arial, sans-serif;
       /* Fondo GIF animado */
       background: url('https://i.pinimg.com/originals/6a/8e/4d/6a8e4d2b450f10d3733422efc4e95526.gif') no-repeat center center fixed;
-      background-size: auto;
+      background-size: cover;
       color: white;
       overflow: hidden;
     }
@@ -179,7 +179,7 @@
 <body>
   <header>
     <i class="fas fa-mask"></i>
-    <h1>DOULE HOOD</h1>
+    <h1>DOULE HOOD PORTAL</h1>
   </header>
 
   <div class="center-container">
