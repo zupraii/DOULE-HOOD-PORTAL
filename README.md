@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+...
 <head>
   <meta charset="UTF-8" />
   <title>DOULE HOOD PORTAL</title>
@@ -73,6 +74,7 @@
 
 <!DOCTYPE html>
 <html lang="es">
+...
 <head>
   <meta charset="UTF-8" />
   <title>DOULE HOOD PORTAL</title>
