@@ -59,10 +59,3 @@
     <i class="fas fa-mask"></i>
     <h1>DOULE HOOD</h1>
   </header>
-
-  <main>
-    <p>Contenido de la página va aquí. Haz scroll para ver el header fijo con fondo negro.</p>
-    <p style="height: 1500px;"></p>
-  </main>
-</body>
-</html>
