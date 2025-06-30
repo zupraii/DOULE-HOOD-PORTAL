@@ -3,12 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <title>DOULE HOOD PORTAL</title>
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
   <style>
     html, body {
       margin: 0;
@@ -20,6 +14,7 @@
       color: white;
       overflow: hidden;
     }
+
     header {
       width: 100%;
       background-color: rgba(0, 0, 0, 0.9);
@@ -36,11 +31,14 @@
       backdrop-filter: blur(5px);
       -webkit-backdrop-filter: blur(5px);
     }
+
     header img {
-      height: 40px;
-      width: 40px;
+      width: 35px;
+      height: 35px;
+      object-fit: cover;
       border-radius: 50%;
     }
+
     header h1 {
       margin: 0;
       font-size: 28px;
@@ -49,6 +47,7 @@
       text-transform: uppercase;
       text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.2);
     }
+
     .center-container {
       height: 100vh;
       display: flex;
@@ -59,12 +58,14 @@
       padding-top: 70px;
       gap: 15px;
     }
+
     .welcome {
       font-size: 4rem;
       font-weight: 900;
       letter-spacing: 5px;
       text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
     }
+
     .doulehood {
       font-size: 2.5rem;
       font-weight: 700;
@@ -72,33 +73,54 @@
       text-transform: uppercase;
       text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
     }
+
     .play-button {
+      margin-top: 30px;
       background-color: #27ae60;
       color: white;
-      padding: 12px 25px;
-      font-size: 1rem;
+      padding: 15px 40px;
+      font-size: 1.5rem;
       font-weight: 700;
       border: none;
-      border-radius: 8px;
+      border-radius: 10px;
       cursor: pointer;
       transition: background-color 0.3s ease;
       box-shadow: 0 4px 8px rgba(0,0,0,0.3);
       text-transform: uppercase;
       user-select: none;
       text-decoration: none;
+      display: inline-block;
+    }
+
+    .play-button:hover {
+      background-color: #2980b9;
+    }
+
+    /* Botón de música */
+    .music-button {
       position: fixed;
       bottom: 20px;
       right: 20px;
-      z-index: 999;
+      background-color: #f39c12;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      z-index: 1001;
     }
-    .play-button:hover {
-      background-color: #2980b9;
+
+    .music-button:hover {
+      background-color: #e67e22;
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="https://i.pinimg.com/736x/2d/15/09/2d15096a992665130f8bd2a2920a3d62.jpg" alt="icono" />
+    <img src="https://i.pinimg.com/736x/2d/15/09/2d15096a992665130f8bd2a2920a3d62.jpg" alt="Logo">
     <h1>DOULE HOOD PORTAL</h1>
   </header>
 
@@ -108,34 +130,34 @@
     <a
       href="https://www.roblox.com/games/119400300196930/DOULE-HOOD"
       target="_blank"
-      class="play-button-link"
+      class="play-button"
       rel="noopener noreferrer"
     >
-      JUGAR
+      PLAY!
     </a>
   </div>
 
-  <button class="play-button">PLAY</button>
+  <button class="music-button" id="musicToggle">🔊 Play Music</button>
 
   <script>
     const audio = new Audio("https://archive.org/download/destroy-lonely-if-looks-could-kill-x-red-x-i-think-it-looks-much-cooler-on-me/destroy-lonely-if-looks-could-kill-x-red-x-i-think-it-looks-much-cooler-on-me.mp3");
     audio.loop = true;
     let playing = false;
 
-    const btn = document.querySelector(".play-button");
+    const btn = document.getElementById("musicToggle");
     btn.addEventListener("click", () => {
       if (!playing) {
         audio.play().then(() => {
           playing = true;
-          btn.textContent = "PAUSE";
-        }).catch((e) => {
-          console.error("Error al reproducir audio:", e);
-          alert("No se pudo reproducir el audio. Revisa la consola.");
+          btn.textContent = "⏸️ Pause Music";
+        }).catch(err => {
+          console.error("No se pudo reproducir:", err);
+          alert("Haz clic para permitir la música.");
         });
       } else {
         audio.pause();
         playing = false;
-        btn.textContent = "PLAY";
+        btn.textContent = "🔊 Play Music";
       }
     });
   </script>
