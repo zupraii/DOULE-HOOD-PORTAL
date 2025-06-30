@@ -70,3 +70,129 @@
     <h1>DOULE HOOD</h1>
   </header>
 
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>DOULE HOOD</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      /* Fondo GIF animado */
+      background: url('https://i.pinimg.com/originals/6a/8e/4d/6a8e4d2b450f10d3733422efc4e95526.gif') no-repeat center center fixed;
+      background-size: auto;
+      color: white;
+      overflow: hidden;
+    }
+
+    header {
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      color: white;
+      display: flex;
+      align-items: center;
+      padding: 15px 30px;
+      gap: 15px;
+      box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+    }
+
+    header i {
+      font-size: 28px;
+      color: #f39c12;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 28px;
+      letter-spacing: 3px;
+      font-weight: 700;
+      text-transform: uppercase;
+      text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.2);
+    }
+
+    /* Contenedor principal centrado */
+    .center-container {
+      height: 100vh; /* toda la altura de la ventana */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding-top: 70px; /* para que no quede debajo del header */
+      gap: 15px;
+    }
+
+    .welcome {
+      font-size: 4rem;
+      font-weight: 900;
+      letter-spacing: 5px;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+    }
+
+    .doulehood {
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+    }
+
+    /* Botón play */
+    .play-button {
+      margin-top: 30px;
+      background-color: #27ae60; /* verde */
+      color: white;
+      padding: 15px 40px;
+      font-size: 1.5rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      text-transform: uppercase;
+      user-select: none;
+      text-decoration: none; /* para el enlace */
+      display: inline-block;
+    }
+    .play-button:hover {
+      background-color: #2980b9; /* azul */
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <i class="fas fa-mask"></i>
+    <h1>DOULE HOOD</h1>
+  </header>
+
+  <div class="center-container">
+    <div class="welcome">WELCOME TO</div>
+    <div class="doulehood">DOULE HOOD</div>
+    <a
+      href="https://www.roblox.com/games/119400300196930/DOULE-HOOD"
+      target="_blank"
+      class="play-button"
+      rel="noopener noreferrer"
+    >
+      PLAY!
+    </a>
+  </div>
+</body>
+</html>
