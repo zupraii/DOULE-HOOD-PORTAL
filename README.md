@@ -16,16 +16,14 @@
       padding: 0;
       height: 100%;
       font-family: Arial, sans-serif;
-      /* Fondo con GIF animado */
       background: url('https://i.pinimg.com/originals/6a/8e/4d/6a8e4d2b450f10d3733422efc4e95526.gif') no-repeat center center fixed;
       background-size: cover;
       color: white;
       overflow: hidden;
     }
-
     header {
       width: 100%;
-      background-color: rgba(0, 0, 0, 0.9); /* fondo negro casi opaco */
+      background-color: rgba(0, 0, 0, 0.9);
       color: white;
       display: flex;
       align-items: center;
@@ -39,12 +37,10 @@
       backdrop-filter: blur(5px);
       -webkit-backdrop-filter: blur(5px);
     }
-
     header i {
       font-size: 28px;
       color: #f39c12;
     }
-
     header h1 {
       margin: 0;
       font-size: 28px;
@@ -53,26 +49,22 @@
       text-transform: uppercase;
       text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.2);
     }
-
-    /* Contenedor principal centrado */
     .center-container {
-      height: 100vh; /* toda la altura de la ventana */
+      height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding-top: 70px; /* para que no quede debajo del header */
+      padding-top: 70px;
       gap: 15px;
     }
-
     .welcome {
       font-size: 4rem;
       font-weight: 900;
       letter-spacing: 5px;
       text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
     }
-
     .doulehood {
       font-size: 2.5rem;
       font-weight: 700;
@@ -80,11 +72,9 @@
       text-transform: uppercase;
       text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
     }
-
-    /* Botón play */
     .play-button {
       margin-top: 30px;
-      background-color: #27ae60; /* verde */
+      background-color: #27ae60;
       color: white;
       padding: 15px 40px;
       font-size: 1.5rem;
@@ -100,7 +90,7 @@
       display: inline-block;
     }
     .play-button:hover {
-      background-color: #2980b9; /* azul */
+      background-color: #2980b9;
     }
   </style>
 </head>
@@ -109,7 +99,6 @@
     <i class="fas fa-mask"></i>
     <h1>DOULE HOOD PORTAL</h1>
   </header>
-
   <div class="center-container">
     <div class="welcome">WELCOME TO</div>
     <div class="doulehood">DOULE HOOD PORTAL!</div>
