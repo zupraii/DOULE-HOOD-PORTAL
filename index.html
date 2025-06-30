@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DOULE HOOD PORTAL</title>
   <style>
     html, body {
@@ -80,9 +81,13 @@
       transition: background-color 0.3s ease;
       box-shadow: 0 4px 8px rgba(0,0,0,0.3);
       text-transform: uppercase;
-      user-select: none;
       text-decoration: none;
       display: inline-block;
+      /* Prefijos para user-select */
+      -webkit-user-select: none; /* Chrome, Safari */
+      -moz-user-select: none;    /* Firefox */
+      -ms-user-select: none;     /* IE10+ */
+      user-select: none;         /* Estándar */
     }
     .play-button:hover {
       background-color: #2980b9;
