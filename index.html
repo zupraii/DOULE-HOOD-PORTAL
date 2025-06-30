@@ -55,8 +55,8 @@
     }
 
     .discord-link {
-      margin-left: -20px; /* Mueve el logo hacia la izquierda */
-      margin-right: 0;
+      position: relative;
+      left: -20px; /* mover 20px a la izquierda */
     }
 
     .discord-link img {
@@ -65,7 +65,7 @@
       cursor: pointer;
       filter: drop-shadow(0 0 2px black);
       transition: transform 0.2s ease;
-      margin-right: 0;
+      margin: 0;
     }
 
     .discord-link img:hover {
@@ -175,11 +175,7 @@
         padding-right: 20px;
       }
       .discord-link {
-        margin-left: -30px; /* Mueve aún más hacia la izquierda en móvil */
-        margin-right: 0;
-      }
-      .discord-link img {
-        margin-right: 5px;
+        left: -30px; /* más a la izquierda en móvil */
       }
     }
   </style>
@@ -213,7 +209,6 @@
   </div>
 
   <script>
-    // Revelar el botón después del efecto del círculo
     setTimeout(() => {
       document.querySelector('.play-button').classList.add('revealed');
     }, 800);
