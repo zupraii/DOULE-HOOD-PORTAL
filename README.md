@@ -186,7 +186,7 @@
 
   <div class="center-container">
     <div class="welcome">WELCOME TO</div>
-    <div class="doulehood">DOULE HOOD</div>
+    <div class="doulehood">DOULE HOOD PORTAL!</div>
     <a
       href="https://www.roblox.com/games/119400300196930/DOULE-HOOD"
       target="_blank"
