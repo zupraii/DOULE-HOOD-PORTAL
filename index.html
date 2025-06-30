@@ -2,7 +2,6 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DOULE HOOD PORTAL</title>
   <style>
     html, body {
@@ -28,8 +27,8 @@
       top: 0;
       left: 0;
       z-index: 1000;
-      -webkit-backdrop-filter: blur(5px);
       backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
     }
     header img {
       width: 35px;
@@ -81,51 +80,12 @@
       transition: background-color 0.3s ease;
       box-shadow: 0 4px 8px rgba(0,0,0,0.3);
       text-transform: uppercase;
+      user-select: none;
       text-decoration: none;
       display: inline-block;
-      -webkit-user-select: none;
-      -moz-user-select:    none;
-      -ms-user-select:     none;
-      user-select:         none;
     }
     .play-button:hover {
       background-color: #2980b9;
-    }
-    .music-controls {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: rgba(0,0,0,0.6);
-      padding: 10px;
-      border-radius: 10px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.5);
-      z-index: 1002;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .music-controls audio {
-      width: 200px;
-      outline: none;
-    }
-    #musicToggleBtn {
-      background-color: #f39c12;
-      border: none;
-      padding: 8px 14px;
-      font-size: 14px;
-      font-weight: bold;
-      border-radius: 8px;
-      cursor: pointer;
-      color: white;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-      -webkit-user-select: none;
-      -moz-user-select:    none;
-      -ms-user-select:     none;
-      user-select:         none;
-      transition: background-color 0.3s ease;
-    }
-    #musicToggleBtn:hover {
-      background-color: #e67e22;
     }
   </style>
 </head>
@@ -147,48 +107,5 @@
       PLAY!
     </a>
   </div>
-
-  <div class="music-controls">
-    <!-- Aquí está tu canción integrada -->
-    <audio id="bgMusic" loop controls>
-      <source src="assets/audio/destroy-lonely.mp3" type="audio/mpeg" />
-      Tu navegador no soporta audio HTML5.
-    </audio>
-    <button id="musicToggleBtn">Play Music</button>
-  </div>
-
-  <script>
-    const audio = document.getElementById("bgMusic");
-    const toggleBtn = document.getElementById("musicToggleBtn");
-
-    audio.volume = 0.5;
-    let isPlaying = false;
-
-    toggleBtn.addEventListener("click", () => {
-      if (!isPlaying) {
-        audio.play().then(() => {
-          isPlaying = true;
-          toggleBtn.textContent = "Pause Music";
-        }).catch(err => {
-          alert("Interactúa con la página para reproducir la música.");
-          console.error(err);
-        });
-      } else {
-        audio.pause();
-        isPlaying = false;
-        toggleBtn.textContent = "Play Music";
-      }
-    });
-
-    // Primer click en la página también intenta reproducir
-    window.addEventListener("click", () => {
-      if (!isPlaying) {
-        audio.play().then(() => {
-          isPlaying = true;
-          toggleBtn.textContent = "Pause Music";
-        }).catch(() => {});
-      }
-    }, { once: true });
-  </script>
 </body>
 </html>
