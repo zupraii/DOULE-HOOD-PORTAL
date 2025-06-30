@@ -16,22 +16,29 @@
     }
 
     header {
-      width: 100%;
-      background-color: rgba(0, 0, 0, 0.9);
-      color: white;
       display: flex;
       align-items: center;
+      justify-content: space-between; /* logo+título a la izquierda, Discord a la derecha */
       padding: 15px 30px;
-      gap: 15px;
+      background-color: rgba(0, 0, 0, 0.9);
+      color: white;
       box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
       position: fixed;
       top: 0;
       left: 0;
+      width: 100%;
       z-index: 1000;
       backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
     }
 
-    header img {
+    header .left-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    header img.logo {
       width: 35px;
       height: 35px;
       object-fit: cover;
@@ -45,6 +52,17 @@
       font-weight: 700;
       text-transform: uppercase;
       text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.2);
+    }
+
+    .discord-link img {
+      width: 35px;
+      height: 35px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .discord-link img:hover {
+      transform: scale(1.1);
     }
 
     .center-container {
@@ -63,8 +81,6 @@
       font-weight: 900;
       letter-spacing: 5px;
       text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
-      animation: zoomOutIn 1s ease forwards;
-      animation-delay: 0.2s;
     }
 
     .doulehood {
@@ -73,8 +89,6 @@
       letter-spacing: 3px;
       text-transform: uppercase;
       text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
-      animation: zoomOutIn 1s ease forwards;
-      animation-delay: 0.4s;
     }
 
     .button-wrapper {
@@ -127,11 +141,6 @@
       transform: scale(1.05); /* Efecto agrandado al pasar mouse */
     }
 
-    @keyframes zoomOutIn {
-      0% { transform: scale(1); opacity: 1; }
-      100% { transform: scale(1.2); opacity: 1; }
-    }
-
     @keyframes shapeReveal {
       0% {
         width: 0;
@@ -148,8 +157,13 @@
 </head>
 <body>
   <header>
-    <img src="https://i.pinimg.com/736x/2d/15/09/2d15096a992665130f8bd2a2920a3d62.jpg" alt="Logo">
-    <h1>DOULE HOOD PORTAL</h1>
+    <div class="left-header">
+      <img src="https://i.pinimg.com/736x/2d/15/09/2d15096a992665130f8bd2a2920a3d62.jpg" alt="Logo" class="logo" />
+      <h1>DOULE HOOD PORTAL</h1>
+    </div>
+    <a href="https://discord.gg/ugg6MqEQTa" target="_blank" rel="noopener noreferrer" class="discord-link" title="Únete a nuestro Discord">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" alt="Discord" />
+    </a>
   </header>
 
   <div class="center-container">
