@@ -77,7 +77,7 @@
       animation-delay: 0.4s;
     }
 
-    /* Contenedor que incluye el botón y la animación de entrada */
+    /* Contenedor del botón y del círculo animado */
     .button-wrapper {
       position: relative;
       width: max-content;
@@ -95,6 +95,7 @@
       transform: translate(-50%, -50%);
       z-index: 2;
       animation: circleExpand 1s ease forwards;
+      pointer-events: none; /* ← Esto permite hacer clic en el botón */
     }
 
     .play-button {
@@ -160,10 +161,10 @@
   </div>
 
   <script>
-    // Revela el botón cuando la animación de círculo termina
+    // Revelar el botón después de que crece el círculo
     setTimeout(() => {
       document.querySelector('.play-button').classList.add('revealed');
-    }, 1000); // Coincide con duración de la animación .circleExpand
+    }, 1000); // Tiempo igual al de la animación del círculo
   </script>
 </body>
 </html>
