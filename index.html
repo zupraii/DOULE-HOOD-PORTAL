@@ -55,7 +55,7 @@
     }
 
     .discord-link {
-      margin-right: 20px; /* Mueve el logo un poco más a la izquierda */
+      margin-right: 0; /* acercamos al máximo */
     }
 
     .discord-link img {
@@ -64,7 +64,7 @@
       cursor: pointer;
       filter: drop-shadow(0 0 2px black);
       transition: transform 0.2s ease;
-      margin-right: 0; /* Reset para que solo controle el link */
+      margin-right: 0;
     }
 
     .discord-link img:hover {
@@ -169,13 +169,12 @@
       }
     }
 
-    /* Media query para pantallas pequeñas */
     @media (max-width: 500px) {
       header {
         padding-right: 20px;
       }
       .discord-link {
-        margin-right: 0px; /* Menos margen en móvil para que quede más a la izquierda */
+        margin-right: -10px; /* aún más a la izquierda en móvil */
       }
       .discord-link img {
         margin-right: 5px;
