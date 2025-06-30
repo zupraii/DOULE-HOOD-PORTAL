@@ -141,13 +141,13 @@
     </a>
   </div>
 
-<div class="music-controls">
-  <audio id="bgMusic" loop volume="0.5" controls>
-    <source src="https://archive.org/download/destroy-lonely-if-looks-could-kill-x-red-x-i-think-it-looks-much-cooler-on-me/destroy-lonely-if-looks-could-kill-x-red-x-i-think-it-looks-much-cooler-on-me.mp3" type="audio/mpeg" />
-    Tu navegador no soporta audio HTML5.
-  </audio>
-  <button id="musicToggleBtn">Play Music</button>
-</div>
+  <div class="music-controls">
+    <audio id="bgMusic" loop controls>
+      <source src="https://archive.org/download/destroy-lonely-if-looks-could-kill-x-red-x-i-think-it-looks-much-cooler-on-me/destroy-lonely-if-looks-could-kill-x-red-x-i-think-it-looks-much-cooler-on-me.mp3" type="audio/mpeg" />
+      Tu navegador no soporta audio HTML5.
+    </audio>
+    <button id="musicToggleBtn">Play Music</button>
+  </div>
 
   <script>
     const audio = document.getElementById("bgMusic");
@@ -156,7 +156,6 @@
     // Configuramos volumen al 50%
     audio.volume = 0.5;
 
-    // Estado inicial: no reproducido
     let isPlaying = false;
 
     toggleBtn.addEventListener("click", () => {
@@ -175,14 +174,14 @@
       }
     });
 
-    // Opcional: auto reproducir tras primer clic en la página (por política navegador)
+    // Opción: intentar reproducir la música al primer clic en la página
     window.addEventListener("click", () => {
       if (!isPlaying) {
         audio.play().then(() => {
           isPlaying = true;
           toggleBtn.textContent = "Pause Music";
         }).catch(() => {
-          // Sin interacción del usuario no se puede reproducir
+          // Aquí no pasa nada si no se puede reproducir sin interacción
         });
       }
     }, { once: true });
